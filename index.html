@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SE LAB PDFs</title>
+<style>
+    body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+        background: #e8f0f7;
+        color: #222;
+        transition: background 0.3s, color 0.3s;
+    }
+    body.dark {
+        background: #212529;
+        color: #f9f9f9;
+    }
+    header {
+        background: linear-gradient(90deg, #3282B8, #0F4C75);
+        color: white;
+        padding: 18px;
+        text-align: center;
+        font-size: 28px;
+        font-weight: bold;
+        position: sticky;
+        top: 0;
+        z-index: 10;
+        letter-spacing: 2px;
+    }
+    .toggle-btn {
+        position: absolute;
+        right: 18px;
+        top: 18px;
+        background: #f6f8fa;
+        color: #3282B8;
+        padding: 5px 12px;
+        border-radius: 20px;
+        cursor: pointer;
+        border: 2px solid #0F4C75;
+        font-size: 17px;
+        font-weight: bold;
+        transition: background 0.3s, color 0.3s;
+    }
+    body.dark .toggle-btn {
+        background: #181c20;
+        color: #f9f9f9;
+        border-color: #3282B8;
+    }
+    .search-box {
+        padding: 16px;
+        text-align: center;
+        background: #dde9f6;
+    }
+    body.dark .search-box {
+        background: #242b33;
+    }
+    .search-box input {
+        width: 93%;
+        padding: 13px;
+        border-radius: 8px;
+        border: 1.5px solid #bbb;
+        font-size: 17px;
+        background: #fff;
+        outline: none;
+        color: #1c2833;
+    }
+    body.dark .search-box input {
+        background: #181c20;
+        color: #f8fafd;
+        border: 1.5px solid #3282B8;
+    }
+    .accordion {
+        width: 92%;
+        margin: 20px auto 0 auto;
+    }
+    .week {
+        background: #fff;
+        padding: 15px 20px;
+        margin: 13px 0 0 0;
+        border-radius: 9px;
+        cursor: pointer;
+        font-size: 21px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border-left: 6px solid #3282B8;
+        box-shadow: 0 4px 10px rgba(50,130,184,0.10);
+        transition: background 0.3s, border-color 0.3s;
+    }
+    body.dark .week {
+        background: #232b32;
+        border-color: #0F4C75;
+    }
+    .week:hover {
+        background: #e7f5ff;
+    }
+    body.dark .week:hover {
+        background: #18222b;
+    }
+    .files {
+        display: none;
+        padding: 15px 24px;
+        background: #f2f7ff;
+        border-radius: 0 0 9px 9px;
+        animation: fade 0.35s;
+        border-left: 4px solid #3282B8;
+        transition: background 0.3s;
+    }
+    body.dark .files {
+        background: #19212b;
+        border-color: #3282B8;
+    }
+    @keyframes fade {
+        from {opacity: 0;}
+        to {opacity: 1;}
+    }
+    .file-item {
+        background: #fff;
+        padding: 11px 10px;
+        margin: 7px 0;
+        border-radius: 6px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border-left: 6px solid #0F4C75;
+        font-size: 18px;
+        transition: background 0.2s, border-color 0.2s;
+    }
+    body.dark .file-item {
+        background: #232b32;
+        border-color: #3282B8;
+        color: #f6f6f7;
+    }
+    .file-item:hover {
+        background: #f6fbfe;
+    }
+    body.dark .file-item:hover {
+        background: #21252a;
+    }
+    .btns a {
+        margin-left: 11px;
+        text-decoration: none;
+        padding: 7px 14px;
+        border-radius: 6px;
+        background: #3282B8;
+        color: white;
+        font-size: 15px;
+        font-weight: bold;
+        transition: background 0.2s;
+    }
+    .btns a:hover {
+        background: #0F4C75;
+        color: #aad8ef;
+    }
+    footer {
+        text-align: center;
+        padding: 17px;
+        margin-top: 24px;
+        background: linear-gradient(90deg, #3282B8, #0F4C75);
+        color: white;
+        letter-spacing: 1px;
+    }
+</style>
+</head>
+<body>
+<header>
+    SE LAB PDFs
+    <div class="toggle-btn" onclick="toggleMode()">🌙</div>
+</header>
+<div class="search-box">
+    <input type="text" id="searchInput" onkeyup="searchFiles()" placeholder="Search PDFs…">
+</div>
+<div class="accordion">
+    <!-- WEEK 1 -->
+    <div class="week" onclick="toggleWeek(1)">📁 Week 1 <span>▼</span></div>
+    <div class="files" id="week1">
+        <div class="file-item">📝 Installation Guide
+            <div class="btns">
+                <a href="WEEK 1/INSTALLATION.docx" download>Download</a>
+            </div>
+        </div>
+        <div class="file-item">📝 SRS-549
+            <div class="btns">
+                <a href="WEEK 1/SRS-549.docx" download>Download</a>
+            </div>
+        </div>
+    </div>
+    <!-- WEEK 2 -->
+    <div class="week" onclick="toggleWeek(2)">📁 Week 2 <span>▼</span></div>
+    <div class="files" id="week2">
+        <div class="file-item">📄 Week 2 Lab Action
+            <div class="btns">
+                <a href="WEEK 2/WEEK 2 LAB ACTION.pdf" target="_blank">View</a>
+                <a href="WEEK 2/WEEK 2 LAB ACTION.pdf" download>Download</a>
+            </div>
+        </div>
+        <div class="file-item">📄 Week 2 
+            <div class="btns">
+                <a href="WEEK 2/WEEK 2.pdf" target="_blank">View</a>
+                <a href="WEEK 2/WEEK 2.pdf" download>Download</a>
+            </div>
+        </div>
+    </div>
+    <!-- WEEK 3 -->
+    <div class="week" onclick="toggleWeek(3)">📁 Week 3 <span>▼</span></div>
+    <div class="files" id="week3">
+        <div class="file-item">📄 Week 3 Lab Action
+            <div class="btns">
+                <a href="WEEK 3/WEEK 3 LAB ACTION.pdf" target="_blank">View</a>
+                <a href="WEEK 3/WEEK 3 LAB ACTION.pdf" download>Download</a>
+            </div>
+        </div>
+        <div class="file-item">📄 Week 3
+            <div class="btns">
+                <a href="WEEK 3/WEEK 3.pdf" target="_blank">View</a>
+                <a href="WEEK 3/WEEK 3.pdf" download>Download</a>
+            </div>
+        </div>
+    </div>
+    <!-- WEEK 4 -->
+    <div class="week" onclick="toggleWeek(4)">📁 Week 4 <span>▼</span></div>
+    <div class="files" id="week4">
+        <div class="file-item">📄 Week 4 Lab Action
+            <div class="btns">
+                <a href="WEEK 4/WEEK 4 LAB ACTION.pdf" target="_blank">View</a>
+                <a href="WEEK 4/WEEK 4 LAB ACTION.pdf" download>Download</a>
+            </div>
+        </div>
+        <div class="file-item">📄 WEEK 4 - Maven java and web project
+            <div class="btns">
+                <a href="WEEK 4/WEEK-4  -Maven java and web project.pdf" target="_blank">View</a>
+                <a href="WEEK 4/WEEK-4  -Maven java and web project.pdf" download>Download</a>
+            </div>
+        </div>
+    </div>
+    <!-- WEEK 5 -->
+    <div class="week" onclick="toggleWeek(5)">📁 Week 5 <span>▼</span></div>
+    <div class="files" id="week5">
+        <div class="file-item">📄 Week 5 Lab Action
+            <div class="btns">
+                <a href="WEEK 5/WEEK 5 LAB ACTION.pdf" target="_blank">View</a>
+                <a href="WEEK 5/WEEK 5 LAB ACTION.pdf" download>Download</a>
+            </div>
+        </div>
+        <div class="file-item">📄 Week 5 Docker
+            <div class="btns">
+                <a href="WEEK 5/WEEK 5 DOCKER.pdf" target="_blank">View</a>
+                <a href="WEEK 5/WEEK 5 DOCKER.pdf" download>Download</a>
+            </div>
+        </div>
+    </div>
+    <!-- WEEK 6 -->
+    <div class="week" onclick="toggleWeek(6)">📁 Week 6 <span>▼</span></div>
+    <div class="files" id="week6">
+        <div class="file-item">📄 Week 6 Lab Action
+            <div class="btns">
+                <a href="WEEK 6/WEEK 6 LAB ACTION.pdf" target="_blank">View</a>
+                <a href="WEEK 6/WEEK 6 LAB ACTION.pdf" download>Download</a>
+            </div>
+        </div>
+        <div class="file-item">📄 Week 6 Docker Compose
+            <div class="btns">
+                <a href="WEEK 6/WEEK 6 Docker Compose.pdf" target="_blank">View</a>
+                <a href="WEEK 6/WEEK 6 Docker Compose.pdf" download>Download</a>
+            </div>
+        </div>
+    </div>
+    <!-- WEEK 7 -->
+    <div class="week" onclick="toggleWeek(7)">📁 Week 7 <span>▼</span></div>
+    <div class="files" id="week7">
+        <div class="file-item">📄 Week 7 Lab Action
+            <div class="btns">
+                <a href="WEEK 7/WEEK 7 LAB ACTION.pdf" target="_blank">View</a>
+                <a href="WEEK 7/WEEK 7 LAB ACTION.pdf" download>Download</a>
+            </div>
+        </div>
+        <div class="file-item">📄 Week 7
+            <div class="btns">
+                <a href="WEEK 7/Week 7.pdf" target="_blank">View</a>
+                <a href="WEEK 7/Week 7.pdf" download>Download</a>
+            </div>
+        </div>
+    </div>
+    <!-- WEEK 8 -->
+    <div class="week" onclick="toggleWeek(8)">📁 Week 8 <span>▼</span></div>
+    <div class="files" id="week8">
+        <div class="file-item">📄 Week 8 Lab Action
+            <div class="btns">
+                <a href="WEEK 8/WEEK 8 LAB ACTION.pdf" target="_blank">View</a>
+                <a href="WEEK 8/WEEK 8 LAB ACTION.pdf" download>Download</a>
+            </div>
+        </div>
+        <div class="file-item">📄 Week 8 Jenkins
+            <div class="btns">
+                <a href="WEEK 8/Week_8 Jenkins.pdf" target="_blank">View</a>
+                <a href="WEEK 8/Week_8 Jenkins.pdf" download>Download</a>
+            </div>
+        </div>
+        <div class="file-item">📄 Jenkins installation and plugins
+            <div class="btns">
+                <a href="WEEK 8/Jenkins installation  and plugins.pptx" target="_blank">View</a>
+                <a href="WEEK 8/Jenkins installation  and plugins.pptx" download>Download</a>
+            </div>
+        </div>
+        <div class="file-item">📄 Maven-Java-Jenkins correct
+            <div class="btns">
+                <a href="WEEK 8/Maven-Java-Jenkins correct (1).pptx" target="_blank">View</a>
+                <a href="WEEK 8/Maven-Java-Jenkins correct (1).pptx" download>Download</a>
+            </div>
+        </div>
+    </div>
+    <!-- WEEK 9 -->
+    <div class="week" onclick="toggleWeek(9)">📁 Week 9 <span>▼</span></div>
+    <div class="files" id="week9">
+        <div class="file-item">📄 Week 9 Lab Action
+            <div class="btns">
+                <a href="WEEK 9/WEEK 9 LAB ACTION.pdf" target="_blank">View</a>
+                <a href="WEEK 9/WEEK 9 LAB ACTION.pdf" download>Download</a>
+            </div>
+        </div>
+        <div class="file-item">📄 Week 9 Jenkins Pipeline
+            <div class="btns">
+                <a href="WEEK 9/Week 9 jenkins pipeline.pdf" target="_blank">View</a>
+                <a href="WEEK 9/Week 9 jenkins pipeline.pdf" download>Download</a>
+            </div>
+        </div>
+    </div>
+    <!-- WEEK 10 -->
+    <div class="week" onclick="toggleWeek(10)">📁 Week 10 <span>▼</span></div>
+    <div class="files" id="week10">
+        <div class="file-item">📄 Week 10 Lab Action
+            <div class="btns">
+                <a href="WEEK 10/WEEK 10 LAB ACTION.pdf" target="_blank">View</a>
+                <a href="WEEK 10/WEEK 10 LAB ACTION.pdf" download>Download</a>
+            </div>
+        </div>
+        <div class="file-item">📄 Week 10
+            <div class="btns">
+                <a href="WEEK 10/WEEK 10.pdf" target="_blank">View</a>
+                <a href="WEEK 10/WEEK 10.pdf" download>Download</a>
+            </div>
+        </div>
+        <div class="file-item">📄 Kubernetes-KR23
+            <div class="btns">
+                <a href="WEEK 10/Kubernetes-KR23 (1).pptx" target="_blank">View</a>
+                <a href="WEEK 10/Kubernetes-KR23 (1).pptx" download>Download</a>
+            </div>
+        </div>
+        <div class="file-item">📄 Nagios-KR23
+            <div class="btns">
+                <a href="WEEK 10/Nagios-KR23 (1).pptx" target="_blank">View</a>
+                <a href="WEEK 10/Nagios-KR23 (1).pptx" download>Download</a>
+            </div>
+        </div>
+    </div>
+    <!-- WEEK 11 -->
+    <div class="week" onclick="toggleWeek(11)">📁 Week 11 <span>▼</span></div>
+    <div class="files" id="week11">
+        <div class="file-item">📄 Week 11 Lab Action
+            <div class="btns">
+                <a href="WEEK 11/WEEK 11 LAB ACTION.pdf" target="_blank">View</a>
+                <a href="WEEK 11/WEEK 11 LAB ACTION.pdf" download>Download</a>
+            </div>
+        </div>
+        <div class="file-item">📄 Week 11 Exer 1 execution
+            <div class="btns">
+                <a href="WEEK 11/Week_11_Exer_1_exectuion_ppt_.pdf" target="_blank">View</a>
+                <a href="WEEK 11/Week_11_Exer_1_exectuion_ppt_.pdf" download>Download</a>
+            </div>
+        </div>
+        <div class="file-item">📄 Week 11 NGROK
+            <div class="btns">
+                <a href="WEEK 11/WEEK_11_NGROK.pdf" target="_blank">View</a>
+                <a href="WEEK 11/WEEK_11_NGROK.pdf" download>Download</a>
+            </div>
+        </div>
+    </div>
+    <!-- WEEK 12 -->
+    <div class="week" onclick="toggleWeek(12)">📁 Week 12 <span>▼</span></div>
+    <div class="files" id="week12">
+        <div class="file-item">📄 Week 12 Lab Action
+            <div class="btns">
+                <a href="WEEK 12/WEEK 12 LAB ACTION.pdf" target="_blank">View</a>
+                <a href="WEEK 12/WEEK 12 LAB ACTION.pdf" download>Download</a>
+            </div>
+        </div>
+        <div class="file-item">📄 Week 12 23BD1A05A4
+            <div class="btns">
+                <a href="WEEK 12/WEEK 12  23BD1A05A4.pdf" target="_blank">View</a>
+                <a href="WEEK 12/WEEK 12  23BD1A05A4.pdf" download>Download</a>
+            </div>
+        </div>
+        <div class="file-item">📄 Deployment of index.html using EC2 & Maven Web AWS
+            <div class="btns">
+                <a href="WEEK 12/WEEK-12 -DEPLOYMENT OF INDEX.HTML USING EC2 INSTANCE and MAVEN WEB PROJECT DEPLOYMENT in AWS (2).pdf" target="_blank">View</a>
+                <a href="WEEK 12/WEEK-12 -DEPLOYMENT OF INDEX.HTML USING EC2 INSTANCE and MAVEN WEB PROJECT DEPLOYMENT in AWS (2).pdf" download>Download</a>
+            </div>
+        </div>
+    </div>
+</div>
+<footer>
+    © 2025 SE LAB 
+</footer>
+<script>
+function toggleWeek(num) {
+    // Hide all files
+    let all = document.querySelectorAll('.files');
+    all.forEach(f => f.style.display = "none");
+    // Remove highlight from all weeks
+    let weeks = document.querySelectorAll('.week');
+    weeks.forEach(w => w.classList.remove("active"));
+    // Show selected week
+    let current = document.getElementById("week" + num);
+    if (current) {
+        current.style.display = "block";
+        weeks[num-1].classList.add("active");
+    }
+}
+function toggleMode() {
+    document.body.classList.toggle("dark");
+    // Change the icon for theme
+    let btn = document.querySelector('.toggle-btn');
+    if (document.body.classList.contains("dark")) {
+        btn.textContent = "☀️";
+    } else {
+        btn.textContent = "🌙";
+    }
+}
+function searchFiles() {
+    let input = document.getElementById("searchInput").value.toLowerCase();
+    let items = document.querySelectorAll(".file-item");
+    items.forEach(item => {
+        item.style.display = item.textContent.toLowerCase().includes(input)
+            ? "flex"
+            : "none";
+    });
+    // If searching, show all parent weeks
+    document.querySelectorAll(".files").forEach(filesBox => {
+        let hasVisible = Array.from(filesBox.querySelectorAll(".file-item"))
+            .some(item => item.style.display === "flex");
+        // Only show the box if it contains visible matching items
+        filesBox.style.display = hasVisible ? "block" : "none";
+    });
+}
+</script>
+</body>
+</html>
